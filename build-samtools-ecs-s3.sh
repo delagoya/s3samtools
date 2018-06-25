@@ -5,8 +5,11 @@ else
   VERSION=1.8
 fi
 
+ORIG_DIR=$(basedir $0)
+
+cd /tmp
 # yum
-yum update -y 
+yum update -y
 yum install -y gcc \
                ncurses-devel \
                libcurl-devel \
@@ -27,4 +30,4 @@ cd samtools-${VERSION}/htslib-${VERSION}
 ./configure --enable-plugins --enable-libcurl --with-plugin-dir=$(pwd)
 make
 cd .. && ./configure && make
-cp samtools ../samtools-ecs-s3
+cp samtools ${ORIG_DIR}/samtools-ecs-s3

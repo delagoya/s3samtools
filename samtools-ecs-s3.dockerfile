@@ -7,4 +7,4 @@ MAINTAINER Angel Pizarro <delagoya@gmail.com>
 RUN yum install -y jq && yum clean all
 COPY samtools-ecs-s3 /usr/local/bin/samtools-ecs-s3
 COPY samtools-wrapper.sh /usr/local/bin/samtools
-ENTRYPOINT ["/usr/local/bin/samtools"]
+CMD ["samtools"]
